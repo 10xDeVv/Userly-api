@@ -54,8 +54,8 @@ public class UserService {
         return user.filter(user1 -> passwordEncoder.matches(password, user1.getPassword()));
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).get();
+    public Optional<User> getUserById(Long id) {
+        return userRepository.findById(id);
     }
 
     public Optional<User> getUserByEmail(String email) {
